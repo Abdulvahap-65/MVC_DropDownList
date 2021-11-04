@@ -26,6 +26,7 @@ namespace MVC_DropDownList.Controllers
             ViewBag.Kategoriler = kategoriler;
             return View();
         }
+
         public ActionResult Calisma()
         {
             return View();
