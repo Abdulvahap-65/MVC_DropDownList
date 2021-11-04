@@ -28,8 +28,6 @@ namespace MVC_DropDownList.Controllers
         }
         public ActionResult Calisma()
         {
-
-
             return View();
         }
     }
