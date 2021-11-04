@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Calisma";
+}
+
+<h2>Calisma</h2>
+
+<!-- #region 1.Dropdownlist Oluşturma -->
+@*Öncelikle name=kategoriler ve  manuel olarak yazdığımız list parametrelerini kullanarak bir dropdownlist oluşturuyoruz.*@
+@Html.DropDownList("kategoriler",
+                 new List<SelectListItem> {
+                     new SelectListItem {
+                        Text="CSS",
+                        Value="1",
+                        // Selected = true, seçili olarak gelemesini istersek,
+                        // Disabled = true,  disable olarak gelemesini istersek, bunu kullanırız.
+                     },
+                     new SelectListItem {
+                        Text="HTML",
+                        Value="2",
+                     },
+                      new SelectListItem {
+                        Text="HTML1",
+                        Value="3",
+                     },
+                 })
+<!-- #endregion -->
+<!-- #region 2.optionLabel Parametresini Kullanma -->
+@*Default bir değer atamak istersek yani listenin ilk değeri değil de kendi belirlediğimiz bir yazının listenin başında default değer olarak gözükmesini istiyorsak bunun için optionLabel parametresini kullanırız.Bu örnekte optionLabel="Kategori Seçiniz" olarak aldım *@
+@Html.DropDownList("kategoriler",
+                 new List<SelectListItem> {
+                     new SelectListItem {
+                        Text="CSS",
+                        Value="1",
+                        // Selected = true, seçili olarak gelsin
+                        // Disabled = true  disable olarak gelsin istersek kullanıyoruz
+                     },
+                     new SelectListItem {
+                        Text="HTML",
+                        Value="2",
+                     },
+                 }, "Kategori Seçiniz")
+<!-- #endregion -->
+<!-- #region 3.HtmlKodları eklenmek İstendiği Takdirde... -->
+@*Html kodlarımızı eklemek istersek de bir parametre daha yazmamız yeterli olur. *@
+@*//Class için
+    // new { @class = "form-control" }
+    //id için
+    // new { @id ="select-list" }
+    //style için
+    // new { @style ="width: 250px......" }*@
+
+@Html.DropDownList("kategoriler",
+                 new List<SelectListItem>
+    {
+    new SelectListItem {
+    Text="CSS",
+    Value="1",
+    // Selected = true, seçili olarak gelsin
+    // Disabled = true  disable olarak gelsin istersek kullanıyoruz
+    },
+    new SelectListItem {
+    Text="HTML",
+    Value="2",
+
+    },
+
+    }, "Kategori Seçiniz", new { @class = "form-control", @id = "select-list", @style = "width: 250px; background-color:blue" })
+<!-- #endregion -->
